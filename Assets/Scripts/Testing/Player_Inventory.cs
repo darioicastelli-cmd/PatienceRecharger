@@ -21,4 +21,12 @@ public class Player_Inventory : MonoBehaviour
         Debug.Log("tenes " + inventory[itemId] + " " + itemId);
     }
 
+    // Consultar cuántos tengo de un item
+    public int GetItemCount(ItemId itemId)
+    {
+        if (inventory.ContainsKey(itemId))
+            return inventory[itemId];
+        return 0;
+    }
+
 }
