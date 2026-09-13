@@ -9,6 +9,7 @@ TagManager:
   - Collectible_Orb
   - Collectible_Diary
   - Collectible_Key
+  - InteractableObject
   layers:
   - Default
   - TransparentFX
