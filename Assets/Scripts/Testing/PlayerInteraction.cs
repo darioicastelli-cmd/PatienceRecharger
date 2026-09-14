@@ -61,12 +61,12 @@ public class PlayerInteraction : MonoBehaviour
 
             if (closest != null)
             {
-                Debug.Log("🚪 Interactuando con: " + closest.name);
+                Debug.Log("Interactuando con: " + closest.name);
                 closest.Interact(); // Ejecutamos su metodo Interact
             }
             else
             {
-                Debug.Log("❌ No hay interactuables dentro de la distancia " + interactionDistance);
+                Debug.Log("No hay interactuables dentro de la distancia " + interactionDistance);
             }
         }
     }

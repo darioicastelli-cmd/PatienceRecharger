@@ -19,7 +19,7 @@ public class DoorWithRequirement : DoorInteractable
     {
         if (playerInventory == null)
         {
-            Debug.LogError("⚠️ No se asignó el Player_Inventory en el inspector.");
+            Debug.LogError("No se asignó el Player_Inventory en el inspector.");
             return;
         }
 
