@@ -587,7 +587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5480067904720204162}
   m_Layer: 3
-  m_Name: DoorComplete
+  m_Name: SM_DoorComplete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
