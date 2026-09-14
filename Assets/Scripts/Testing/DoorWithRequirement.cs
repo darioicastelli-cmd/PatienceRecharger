@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 
+
 public class DoorWithRequirement : DoorInteractable
 {
     [Header("Requisitos de inventario")]
@@ -14,6 +15,8 @@ public class DoorWithRequirement : DoorInteractable
     private void Start()
     {
         UpdateRequirementUI();
+        if (playerInventory != null)
+            playerInventory.OnInventoryChanged += UpdateRequirementUI;
     }
     public override void Interact()
     {
@@ -37,10 +40,10 @@ public class DoorWithRequirement : DoorInteractable
     }
     private void UpdateRequirementUI()
     {
+        int currentAmount = playerInventory.GetItemCount(requiredItem);
         if (requirementText != null && playerInventory != null)
         {
-            int currentAmount = playerInventory.GetItemCount(requiredItem);
-            requirementText.text = $"Necesitás {requiredAmount} {requiredItem}\nTienes {currentAmount}";
+            requirementText.text = $"Necesitás {requiredAmount} {requiredItem}, Tienes {currentAmount}.";
         }
     }
 }

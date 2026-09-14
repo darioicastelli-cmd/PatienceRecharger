@@ -1,9 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class Player_Inventory : MonoBehaviour
 {
     private Dictionary<ItemId, int> inventory = new Dictionary<ItemId, int>();
+
+    public delegate void InventoryChanged();
+    public event InventoryChanged OnInventoryChanged;
 
     //La función devuelve un ItemId y un int, que se agrega al Diccionario.
     public void AddItem(ItemId itemId)
@@ -19,6 +24,9 @@ public class Player_Inventory : MonoBehaviour
             inventory.Add(itemId, 1);
         }
         Debug.Log("tenes " + inventory[itemId] + " " + itemId);
+
+        // Avisar que el inventario cambió
+        OnInventoryChanged?.Invoke();
     }
 
     // Consultar cuántos tengo de un item
@@ -26,7 +34,7 @@ public class Player_Inventory : MonoBehaviour
     {
         if (inventory.ContainsKey(itemId))
             return inventory[itemId];
-        return 0;
+        else return 0;
     }
 
 }
