@@ -153,19 +153,19 @@ PrefabInstance:
       objectReference: {fileID: 2115502586164285026}
     - target: {fileID: 5542111180780342647, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.25799
+      value: 0.15000153
       objectReference: {fileID: 0}
     - target: {fileID: 5542111180780342647, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5000001
+      value: 0.44500005
       objectReference: {fileID: 0}
     - target: {fileID: 5542111180780342647, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 63.50169
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 5542111180780342647, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7103085
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542111180780342647, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
       propertyPath: m_LocalRotation.x
@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5542111180780342647, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7038905
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5542111180780342647, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
       propertyPath: m_LocalRotation.z
@@ -260,6 +260,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 974238578668270704, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 216839225430061229}
+    - targetCorrespondingSourceObject: {fileID: 974238578668270704, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5372444798757191152}
   m_SourcePrefab: {fileID: 100100000, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
 --- !u!20 &1351472702407904830 stripped
 Camera:
@@ -367,6 +370,18 @@ MonoBehaviour:
   interactableLayers:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &5372444798757191152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6029718816526432062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4917e11dd634ecc449cd474290907899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_RespawnCC
 --- !u!4 &6405822902410390916 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 490576248761790154, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
