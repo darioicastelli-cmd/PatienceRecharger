@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-
+using System.Collections;
 
 public class DoorWithRequirement : DoorInteractable
 {
@@ -9,8 +9,12 @@ public class DoorWithRequirement : DoorInteractable
     [SerializeField] private int requiredAmount;
     [SerializeField] private Player_Inventory playerInventory;
 
-    [Header("UI")]
-    [SerializeField] private TextMeshProUGUI requirementText; // arrastrá el texto en el inspector
+    [Header("UI en la puerta")]
+    [SerializeField] private TextMeshProUGUI requirementText; // texto fijo en la puerta
+
+    [Header("UI de aviso general")]
+    [SerializeField] private GameObject warningPanel;         // panel de aviso
+    [SerializeField] private TextMeshProUGUI warningText;     // texto dentro del panel
 
     private void Start()
     {
@@ -18,6 +22,7 @@ public class DoorWithRequirement : DoorInteractable
         if (playerInventory != null)
             playerInventory.OnInventoryChanged += UpdateRequirementUI;
     }
+
     public override void Interact()
     {
         if (playerInventory == null)
@@ -31,19 +36,35 @@ public class DoorWithRequirement : DoorInteractable
         if (currentAmount >= requiredAmount)
         {
             Debug.Log("Requisito cumplido, abriendo puerta...");
-            base.Interact(); // esto alterna isOpen y activa la animación
+            base.Interact(); // abre la puerta
         }
         else
         {
             Debug.Log($"Necesitás {requiredAmount} {requiredItem}, pero tenés {currentAmount}.");
+
+            //Mostrar cartel en pantalla y ocultarlo luego de 3 segundos
+            if (warningPanel != null && warningText != null)
+            {
+                warningPanel.SetActive(true);
+                warningText.text = $"No tienes la cantidad necesaria de {requiredItem} para abrir esta puerta.";
+                StartCoroutine(HideWarningAfterDelay(3f));
+            }
         }
     }
+
     private void UpdateRequirementUI()
     {
         int currentAmount = playerInventory.GetItemCount(requiredItem);
         if (requirementText != null && playerInventory != null)
         {
-            requirementText.text = $"Necesitás {requiredAmount} {requiredItem}, Tienes {currentAmount}.";
+            requirementText.text = $"Necesitás {requiredAmount} {requiredItem}, \nTienes {currentAmount}.";
         }
+    }
+
+    // corrutina para timer del cartel
+    private IEnumerator HideWarningAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        warningPanel.SetActive(false);
     }
 }

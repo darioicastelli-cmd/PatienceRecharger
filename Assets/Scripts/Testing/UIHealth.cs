@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class HealthUI : MonoBehaviour
+public class UIHealth : MonoBehaviour
 {
     [SerializeField] private Script_All_HPSelf playerHP; // Referencia al script de vida del jugador
     [SerializeField] private TextMeshProUGUI healthText; // Texto en pantalla
@@ -10,7 +10,7 @@ public class HealthUI : MonoBehaviour
     {
         if (playerHP != null && healthText != null)
         {
-            healthText.text = playerHP.GetHealthPoints() + " / " + playerHP.GetMaxHealthPoints();
+            healthText.text = "HP: " + playerHP.GetHealthPoints() + " / " + playerHP.GetMaxHealthPoints();
         }
     }
 }
